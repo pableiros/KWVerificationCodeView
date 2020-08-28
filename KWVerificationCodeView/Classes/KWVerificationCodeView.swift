@@ -12,6 +12,7 @@ public protocol KWVerificationCodeViewDelegate: class {
   func didChangeVerificationCode()
 }
 
+@available(iOS 12.0, *)
 @IBDesignable open class KWVerificationCodeView: UIView {
 
   // MARK: - Constants
@@ -225,6 +226,7 @@ public protocol KWVerificationCodeViewDelegate: class {
 }
 
 // MARK: - KWTextFieldDelegate
+@available(iOS 12.0, *)
 extension KWVerificationCodeView: KWTextFieldDelegate {
   func moveToNext(_ textFieldView: KWTextFieldView) {
     let validIndex = textFieldViews.firstIndex(of: textFieldView) == textFieldViews.count - 1 ? textFieldViews.firstIndex(of: textFieldView)! : textFieldViews.firstIndex(of: textFieldView)! + 1

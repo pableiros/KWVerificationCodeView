@@ -9,6 +9,7 @@
 import UIKit
 import KWVerificationCodeView
 
+@available(iOS 12.0, *)
 class VerificationCodeViewController: UIViewController {
 
   // MARK: - IBOutlets
