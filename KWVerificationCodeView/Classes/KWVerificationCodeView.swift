@@ -158,7 +158,19 @@ public protocol KWVerificationCodeViewDelegate: class {
 
   // MARK: - Public Methods
   public func focus() {
-    textFieldViews[0].numberTextField.becomeFirstResponder()
+    var verificationCode = ""
+    
+    for textFieldView in textFieldViews {
+      verificationCode += textFieldView.numberTextField.text!
+    }
+    
+    let trimmedString = verificationCode.trimmingCharacters(in: .whitespaces)
+    
+    if trimmedString.count > 3{
+      textFieldViews[trimmedString.count - 1].numberTextField.becomeFirstResponder()
+    }else{
+      textFieldViews[trimmedString.count].numberTextField.becomeFirstResponder()
+    }
   }
 
   public func getVerificationCode() -> String {
